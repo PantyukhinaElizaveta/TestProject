@@ -1,0 +1,46 @@
+﻿@model List<Notebook.NoteModel>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowModeForADay</title>
+</head>
+
+<body>
+    <h2>Notes for today</h2>
+
+    @using (Html.BeginForm())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> </th>
+                    <th>Type</th>
+                    <th>Subject</th>
+                    <th>First date and time</th>
+                    <th>Last date and time</th>
+                    <th>Place</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.Encode(item.Id)</td>
+                        <td>@Html.Encode(item.Type)</td>
+                        <td>@Html.Encode(item.Theme)</td>
+                        <td>@Html.Encode(item.StartTime)</td>
+                        <td>@Html.Encode(item.FinishTime)</td>
+                        <td>@Html.Encode(item.Place)</td>
+                        <td>@Html.Encode(item.Result)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    <div>@Html.ActionLink("Back to Main", "Index")</div>
+</body>
+</html>

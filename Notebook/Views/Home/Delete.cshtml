@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Delete</title>
+    </head>
+
+    <body>
+        <h2>Delete</h2>
+
+        @using (Html.BeginForm())
+        {
+            <fieldset>
+                <p>
+                    <label for="Type">Type:</label>
+                    @Html.TextBox("Type")
+                    @Html.ValidationMessage("Type")
+                </p>
+                <p>
+                    <label for="Theme">Subject:</label>
+                    @Html.TextBox("Theme")
+                    @Html.ValidationMessage("Theme")
+                </p>
+                <p>
+                    <label for="StartTime">First date and time:</label>
+                    @Html.TextBox("StartTime")
+                    @Html.ValidationMessage("StartTime")
+                </p>
+                <p>
+                    <label for="FinishTime">Last date and time:</label>
+                    @Html.TextBox("FinishTime")
+                    @Html.ValidationMessage("FinishTime")
+                </p>
+                <p>
+                    <label for="Place">Place:</label>
+                    @Html.TextBox("Place")
+                    @Html.ValidationMessage("Place")
+                </p>
+                <p>
+                    <input type="submit" value="Delete" />
+                </p>
+            </fieldset>
+        }
+
+        <div>@Html.ActionLink("Back to Main", "Index")</div>
+
+    </body>
+</html>

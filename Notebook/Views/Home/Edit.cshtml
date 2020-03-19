@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Editor</title>
+    </head>
+
+    <body>
+        <h2>Edit</h2>
+
+        @using (Html.BeginForm())
+        {
+        <fieldset>
+            <p>
+                <label for="Type">Type:</label>
+                @Html.TextBox("Type")
+                @Html.ValidationMessage("Type")
+            </p>
+            <p>
+                <label for="Theme">Subject:</label>
+                @Html.TextBox("Theme")
+                @Html.ValidationMessage("Theme")
+            </p>
+            <p>
+                <label for="StartTime">First date and time:</label>
+                @Html.TextBox("StartTime")
+                @Html.ValidationMessage("StartTime")
+            </p>
+            <p>
+                <label for="FinishTime">Last date and time:</label>
+                @Html.TextBox("FinishTime")
+                @Html.ValidationMessage("FinishTime","* except of Jetting")
+            </p>
+            <p>
+                <label for="Place">Place:</label>
+                @Html.TextBox("Place")
+                @Html.ValidationMessage("Place","* for Meet only")
+            </p>
+            <p>
+                <label for="Result">Result:</label>
+                @Html.CheckBox("Result")
+                @Html.ValidationMessage("Result")
+            </p>
+            <p>
+                <input type="submit" value="Save changes" />
+            </p>
+        </fieldset>
+        }
+
+        <div>@Html.ActionLink("Back to Main", "Index")</div>
+    </body>
+</html>

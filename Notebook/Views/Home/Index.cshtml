@@ -1,0 +1,75 @@
+﻿@model List<Notebook.NoteModel>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+
+<body>
+
+    <h2>Main</h2>
+
+    <div class="filter">
+        <p>Filter by type:</p> 
+        <a>@Html.ActionLink("Meet filter", "TypeFilter", new { type = "Meet" })</a>
+        <a>@Html.ActionLink("Business filter", "TypeFilter", new { type = "Business" })</a>
+        <a>@Html.ActionLink("Jetting filter", "TypeFilter", new { type = "Jetting" })</a>
+    </div>
+
+    <div>
+        <a>@Html.ActionLink("A day", "ShowModeForADay", new { date = System.DateTime.Today })</a>
+        <a>@Html.ActionLink("A week", "ShowModeForAWeek", new { date = System.DateTime.Today })</a>
+        <a>@Html.ActionLink("A month", "ShowModeForAMonth", new { date = System.DateTime.Today })</a>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        <form>
+            <p>Search the date: </p>
+            @Html.TextBox("Search")
+            @Html.ValidationMessage("Search")
+            <input type="submit" value="Search" />
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> </th>
+                    <th>Type</th>
+                    <th>Subject</th>
+                    <th>First date and time</th>
+                    <th>Last date and time</th>
+                    <th>Place</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.Encode(item.Id)</td>
+                        <td>@Html.Encode(item.Type)</td>
+                        <td>@Html.Encode(item.Theme)</td>
+                        <td>@Html.Encode(item.StartTime)</td>
+                        <td>@Html.Encode(item.FinishTime)</td>
+                        <td>@Html.Encode(item.Place)</td>
+                        <td>@Html.Encode(item.Result)</td>
+                        <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+                        <td>@Html.ActionLink("Delete", "Delete", new { id = item.Id })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <div>
+        <a>@Html.ActionLink("Create new meet", "CreateMeet")</a>
+        <a>@Html.ActionLink("Create new business", "CreateBusiness")</a>
+        <a>@Html.ActionLink("Create new jetting", "CreateJetting")</a>
+    </div>
+
+</body>
+</html>

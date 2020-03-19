@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "CreateBusiness";
+}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>CreateBusiness</title>
+</head>
+
+    <body>
+        <h2>Business creating</h2>
+
+        @Html.ValidationSummary()
+        @using (Html.BeginForm())
+        {
+            <fieldset>
+                <p>
+                    <label for="Type">Type:</label>
+                    @Html.TextBox("Type", "Business")
+                    @Html.ValidationMessage("Type")
+                </p>
+                <p>
+                    <label for="Theme">Subject:</label>
+                    @Html.TextBox("Theme")
+                    @Html.ValidationMessage("Theme", "*")
+                </p>
+                <p>
+                    <label for="StartTime">First date and time:</label>
+                    @Html.TextBox("StartTime")
+                    @Html.ValidationMessage("StartTime", "*")
+                </p>
+                <p>
+                    <label for="FinishTime">Last date and time:</label>
+                    @Html.TextBox("FinishTime")
+                    @Html.ValidationMessage("FinishTime")
+                </p>
+                <p>
+                    <input type="submit" value="Create" />
+                </p>
+            </fieldset>
+        }
+
+        <div>@Html.ActionLink("Back to Main", "Index")</div>
+
+    </body>
+</html>
